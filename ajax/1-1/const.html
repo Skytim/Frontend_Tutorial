@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>變數基本範例</title>
+    <title>Const 範例</title>
     <p id="box"></p>
 </head>
 
@@ -14,7 +14,9 @@
 </body>
 <script>
     var className = 'Flycan';
-    var year = 2019;
+    const year = 2019;
+    // 很多行之後
+    year = 2021;
     var content = className + ' 年度課程' + year;
     document.getElementById('box').textContent = content;
     console.log(content);
