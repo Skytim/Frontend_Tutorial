@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FlyCan Class</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 初始化陣列
+    var peopleName = [];
+
+    // 0是一位
+    peopleName[0] = 'Tim';
+    peopleName[1] = 'Jam';
+    peopleName[2] = 'Max';
+    
+    // 動態加入陣列
+    peopleName.push('Tony');
+
+    // 可用 length算出數量
+    console.log(peopleName.length);
+
+    // 可用 for迴圈取出所有的值
+
+    for (var i = 0; i < peopleName.length; i++) {
+        // if (peopleName[i] != 'Tim') {
+            var selectName = peopleName[i];
+            console.log(selectName);
+        // }
+    }
+    
+    console.log(i);
+
+</script>
+
+</html>

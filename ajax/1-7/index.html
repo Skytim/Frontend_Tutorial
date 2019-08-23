@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <p id="box"></p>
+</head>
+
+<body>
+
+</body>
+<script>
+    var box = document.getElementById('box');
+    fetch('https://data.taipei/opendata/datalist/apiAccess?scope=resourceAquire&rid=24c9f8fe-88db-4a6e-895c-498fbc94df94&q=&limit=&offset=1', { method: 'Get' })
+        .then((response) => {
+            // 如果成功的話，資料預先處理，並且回傳到下一層
+            return response.json();
+        }).then((data) => {
+            for (var i = 0; i < data.result.results.length; i++) {
+                const address = data.result.results[i].o_tlc_agency_address;
+                const name = data.result.results[i].o_tlc_agency_name;
+                if (name.includes('內湖')) {
+                    console.log(name);
+                }
+            }
+            // var animalName = data.result.results[0].A_Name_En;
+            // box.textContent = animalName;
+        }).catch((err) => {
+            // 如果錯誤的話，執行這部分
+            console.log('錯誤:', err);
+        });
+</script>
+
+</html>

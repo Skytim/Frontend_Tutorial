@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+    var test = {};
+    test.boss = 'Amy';
+    test.gotowork =function(num){
+        console.log(num);
+        return true;
+    };
+    console.log(test.boss);
+    console.log(test.gotowork(3));
+
+    var test2 =new Object();
+    test2.boss = 'Benson';
+    console.log(test2.boss);
+
+    var employee = {
+        boss: 'Jay',
+        frontEnd: 'Tim',
+        backEnd: 'Tony',
+        GoLunch: function (num) {
+            console.log(num);
+        }
+    };
+
+    var employee2 = {
+        boss: 'Ray',
+        frontEnd:'Darren'
+    };
+    var car ={
+        item:["item1","item2"],
+        pay:function(money){
+            console.log(money);
+        }
+    }
+    var test3 =[{item:'car'},{item:'car'}];
+    console.log(test3[0].item);
+    console.log(employee2.boss);
+
+</script>
+
+</html>
