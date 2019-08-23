@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Type Ahead</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <form class="search-form">
+    <input type="text" id="search" placeholder="動物名稱 或是 科別">
+    <ul id="suggestions">
+      <li>搜尋動物名稱</li>
+      <li>或是科別</li>
+    </ul>
+  </form>
+
+</body>
+<script>
+  const endpoint = 'https://data.taipei/opendata/datalist/apiAccess?scope=resourceAquire&rid=a3e2b221-75e0-45c1-8f97-75acbd43d613&q=&limit=1000&offset=1';
+
+  const animals = [];
+
+  fetch(endpoint, { method: 'Get' })
+    .then((response) => {
+      // 如果成功的話，資料預先處理，並且回傳到下一層
+      return response.json();
+    })
+    .then(data => {
+      const results = data.result.results;
+      animals.push(...results);
+      console.log(animals);
+    });
+
+  function findMatches(wordToMatch, animals) {
+    return animals.filter(animal => {
+      let lowerWordToMatch = wordToMatch.toLowerCase();
+      return animal.A_Name_En.toLowerCase().includes(lowerWordToMatch) || animal.A_Order.toLowerCase().includes(lowerWordToMatch);
+    });
+  }
+
+
+  function displayMatches() {
+    const result = findMatches(this.value, animals);
+    console.log(result);
+  }
+
+
+  const searchInput = document.getElementById('search');
+  searchInput.addEventListener('change', displayMatches);
+  searchInput.addEventListener('keyup', displayMatches);
+
+</script>
+
+</html>

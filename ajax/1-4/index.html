@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>FlyCan Class</title>
+    <p id="box"></p>
 </head>
 
 <body>
@@ -14,11 +15,11 @@
 <script>
     // 初始化陣列
     var peopleName = [];
-
+    var box = document.getElementById('box');
     // 0是一位
     peopleName[0] = 'Tim';
     peopleName[1] = 'Jam';
-    peopleName[1] = 'Max';
+    peopleName[2] = 'Max';
 
     // 動態加入陣列
     peopleName.push('Tony');
@@ -27,15 +28,14 @@
     console.log(peopleName.length);
 
     // 可用 for迴圈取出所有的值
-
     for (var i = 0; i < peopleName.length; i++) {
-        // if (peopleName[i] != 'Tim') {
         var selectName = peopleName[i];
         console.log(selectName);
-        // }
+        var item = document.createElement("li");
+        item.textContent= selectName;
+        box.append(item);
     }
 
-    console.log(selectName);
 
 </script>
 

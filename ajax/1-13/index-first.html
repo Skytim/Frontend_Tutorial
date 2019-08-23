@@ -20,5 +20,21 @@
 </body>
 <script>
   const endpoint = 'https://data.taipei/opendata/datalist/apiAccess?scope=resourceAquire&rid=a3e2b221-75e0-45c1-8f97-75acbd43d613&q=&limit=1000&offset=1';
+
+  const animals = [];
+
+  fetch(endpoint, { method: 'Get' })
+    .then((response) => {
+      // 如果成功的話，資料預先處理，並且回傳到下一層
+      return response.json();
+    })
+    .then(data => {
+      const results = data.result.results;
+      animals.push(...results);
+      console.log(animals);
+    });
+
+
 </script>
+
 </html>

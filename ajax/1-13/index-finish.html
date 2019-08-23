@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Type Ahead</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Type Ahead</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <form class="search-form">
-        <input type="text"  id="search" placeholder="動物名稱 或是 科別">
+        <input type="text" id="search" placeholder="動物名稱 或是 科別">
         <ul id="suggestions">
             <li>搜尋動物名稱</li>
             <li>或是科別</li>
         </ul>
     </form>
-   
+
 </body>
 <script>
     const endpoint = 'https://data.taipei/opendata/datalist/apiAccess?scope=resourceAquire&rid=a3e2b221-75e0-45c1-8f97-75acbd43d613&q=&limit=1000&offset=1';
@@ -32,32 +34,32 @@
 
     function findMatches(wordToMatch, animals) {
         return animals.filter(animal => {
-            // here we need to figure out if the city or state matches what was searched
-            const regex = new RegExp(wordToMatch, 'gi');
-            return animal.A_Name_En.match(regex)|| animal.A_Order.match(regex);
+            let lowerWordToMatch = wordToMatch.toLowerCase();
+            return animal.A_Name_En.toLowerCase().includes(lowerWordToMatch) || animal.A_Order.toLowerCase().includes(lowerWordToMatch);
+
         });
     }
-    function numberWithCommas(x) {
-        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    }
+
+
     function displayMatches() {
         const matchArray = findMatches(this.value, animals);
         const html = matchArray.map(animal => {
-            const regex = new RegExp(this.value, 'gi');
-            const animalName = animal.A_Name_En.replace(regex, `<span class="hl">${this.value}</span>`);
-            const animalOrder = animal.A_Order.replace(regex, `<span class="hl">${this.value}</span>`);
+            const animalName = animal.A_Name_En.toLowerCase().replace(this.value.toLowerCase(), `<span class="hl">${this.value}</span>`);
+            const animalOrder = animal.A_Order.toLowerCase().replace(this.value.toLowerCase(), `<span class="hl">${this.value}</span>`);
             return `
-  <li>
-    <span class="name">${animalName}, ${animalOrder}</span>
-   
-  </li>
-`;
+                    <li>
+                        <span class="name">${animalName}, ${animalOrder}</span>
+                    
+                    </li>
+             `;
         }).join('');
         suggestions.innerHTML = html;
     }
+
     const searchInput = document.getElementById('search');
     const suggestions = document.getElementById('suggestions');
     searchInput.addEventListener('change', displayMatches);
     searchInput.addEventListener('keyup', displayMatches);
 </script>
+
 </html>
