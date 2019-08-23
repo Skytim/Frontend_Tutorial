@@ -12,31 +12,35 @@
 
 </body>
 <script>
-    // 初始化陣列
-    var peopleName = [];
+    // 將值塞到 className
+    // 指定第一個位置為 Flycan
+    // 第三個位置是 2019
+    // 之後為 Black 以及 White
+    // 長度為何??
+    // 額外:請印出陣列的資料
+    var className = [];
 
     // 0是一位
-    peopleName[0] = 'Tim';
-    peopleName[1] = 'Jam';
-    peopleName[1] = 'Max';
+    className[0] = 'Flycan';
+
+    className[2] = '2019';
 
     // 動態加入陣列
-    peopleName.push('Tony');
-    console.log(peopleName);
+    className.push('Black');
+    className.push('White');
+    console.log(className);
     // 可用 length算出數量
-    console.log(peopleName.length);
+    console.log(className.length);
 
     // 可用 for迴圈取出所有的值
 
-    for (var i = 0; i < peopleName.length; i++) {
+    for (var i = 0; i < className.length; i++) {
         // if (peopleName[i] != 'Tim') {
-        var selectName = peopleName[i];
+        var selectName = className[i];
         console.log(selectName);
         // }
     }
-
-    console.log(selectName);
-
+ 
 </script>
 
 </html>

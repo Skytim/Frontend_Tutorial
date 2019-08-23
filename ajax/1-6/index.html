@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Const 範例</title>
     <p id="box"></p>
 </head>
 
@@ -13,18 +13,14 @@
 
 </body>
 <script>
-    var box = document.getElementById('box');
-    fetch('https://data.taipei/opendata/datalist/apiAccess?scope=resourceAquire&rid=a3e2b221-75e0-45c1-8f97-75acbd43d613&q=&limit=1000&offset=1', { method: 'Get' })
-        .then((response) => {
-            // 如果成功的話，資料預先處理，並且回傳到下一層
-            return response.json();
-        }).then((data) => {
-            var animalName = data.result.results[0].A_Name_En;
-            box.textContent = animalName;
-        }).catch((err) => {
-            // 如果錯誤的話，執行這部分
-            console.log('錯誤:', err);
-        });
+    var className = 'Flycan';
+    // const year = 2019;
+    // 很多行之後
+    year = 2021;
+    var content = className + ' 年度課程' + year;
+    document.getElementById('box').textContent = content;
+    console.log(content);
+
 </script>
 
 </html>

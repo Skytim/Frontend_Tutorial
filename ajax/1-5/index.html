@@ -24,6 +24,7 @@
         ]
     };
     for (var i in employee.projectname) {
+        // 新增 li 的物件
         var item = document.createElement("li").append(employee.projectname[i].project);
         document.getElementById('box').append(item);
     }
