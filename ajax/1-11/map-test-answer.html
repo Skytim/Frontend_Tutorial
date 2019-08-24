@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 相同的陣列
+    var people = [
+        {
+            name: 'Tim',
+            like: '鍋燒意麵',
+            age: 18
+        },
+        {
+            name: 'Tony',
+            like: '炒麵',
+            age: 24
+        },
+        {
+            name: 'Harry',
+            like: '蘿蔔泥',
+            age: 1
+        },
+        {
+            name: 'Rand',
+            like: '蘿蔔泥',
+            age: 3
+        }
+    ];
+    // 請二分法當name 裡有T 的即為老師，反之為學生
+    var mapIsTeacherOrNot = people.map(function (item, index, array) {
+        let name = item.name;
+        if (name.includes('T')) {
+            return `${name} 是老師`;
+        } else {
+            return `${name} 是學生`;
+        }
+    });
+
+    console.log(mapIsTeacherOrNot);
+
+</script>
+
+</html>
